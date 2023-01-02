@@ -2,6 +2,7 @@
 
 
 ### Requirements:
+- You should be using this within the context of https://github.com/GlueOps/admiral
 - Before you start have a connection to your kubernetes cluster. Make sure that you can run this command and all the vault-[0-2] pods running:
   
 `kubectl get pods -n glueops-core-vault`
