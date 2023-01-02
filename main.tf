@@ -1,3 +1,7 @@
+locals {
+  vault_url = https://127.0.0.1:8200
+}
+
 provider "vaultoperator" {
   vault_addr = local.vault_url
 }
@@ -8,7 +12,7 @@ resource "vaultoperator_init" "default" {
 }
 
 resource "local_sensitive_file" "foo" {
-  content  = jsonencode({ "vault_address" = "https://127.0.0.1:8200", "root_token" = "${vaultoperator_init.default.root_token}", "keys" = "${vaultoperator_init.default.keys}" })
+  content  = jsonencode({ "vault_address" = "${local.vault_url}", "root_token" = "${vaultoperator_init.default.root_token}", "keys" = "${vaultoperator_init.default.keys}" })
   filename = "../vault_access.json"
 }
 
