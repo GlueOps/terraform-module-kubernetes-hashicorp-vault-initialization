@@ -3,7 +3,7 @@
 
 ### Requirements:
 - You should be using this within the context of https://github.com/GlueOps/admiral
-- Before you start have a connection to your kubernetes cluster. Make sure that you can run this command and all the vault-[0-2] pods running:
+- Before you start have a connection to your kubernetes cluster. Make sure that you can run this command and all the vault-[0-2] pods "Running":
   
 `kubectl get pods -n glueops-core-vault`
 - This module takes no inputs and assumes that you are using vault with SSL enabled.
