@@ -1,5 +1,5 @@
 locals {
-  vault_url = https://127.0.0.1:8200
+  vault_url = "https://127.0.0.1:8200"
 }
 
 provider "vaultoperator" {
