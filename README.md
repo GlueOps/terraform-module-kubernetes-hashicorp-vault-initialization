@@ -19,7 +19,9 @@ kubectl get secret/vault-ca-secret -n glueops-core-vault --template '{{index .da
 ```
 
 - Setting this environment variable tells your system as well as golang (since it uses your system trust store) to trust your self-signed certificate:
-`export SSL_CERT_FILE=$(pwd)/ca.crt`
+```bash
+export SSL_CERT_FILE=$(pwd)/ca.crt
+```
 
 **Before you can use the module you need to establish a connection to the svc/vault**
 
