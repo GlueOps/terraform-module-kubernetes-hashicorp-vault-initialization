@@ -5,7 +5,18 @@ This terraform module is to help yo intialize and unseal vault. This is part of 
 
 ## Prerequisites to use this Terraform module
 
-- https://github.com/GlueOps/terraform-module-kubernetes-hashicorp-vault-initialization/wiki
+- All Vault Pods must be in at least a `Running` State
+- Connection to the Vault cluster using `kubectl` port forwarding.
+
+For more details see: https://github.com/GlueOps/terraform-module-kubernetes-hashicorp-vault-initialization/wiki
+
+### Example usage of module
+
+```hcl
+module "initialize_vault_cluster" {
+  source = "git::https://github.com/GlueOps/terraform-module-kubernetes-hashicorp-vault-initialization.git?ref=v0.2.0"
+}
+```
 
 ## Requirements
 
