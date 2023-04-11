@@ -3,7 +3,7 @@
 
 This terraform module is to help yo intialize and unseal vault. This is part of the opionated GlueOps Platform. If you came here directly then you should probably visit https://github.com/glueops/admiral as that is the start point.
 
-## Prerequisites
+## Prerequisites to use this Terraform module
 
 - https://github.com/GlueOps/terraform-module-kubernetes-hashicorp-vault-initialization/wiki
 
