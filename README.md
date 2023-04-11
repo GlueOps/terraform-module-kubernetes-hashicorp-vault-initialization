@@ -1,26 +1,23 @@
 <!-- BEGIN_TF_DOCS -->
 # terraform-module-kubernetes-hashicorp-vault-initialization
 
-This Terraform module initializes and unseals vault. You can use this module to unseal vault whenever needed. This repo should be used in the context of deploying with an [admiral](https://github.com/glueops/admiral)
+This terraform module is to help you intialize and unseal vault. This module can be run multiple times, after it's first run it can be used to unseal a sealed vault cluster, so feel free to run it as many times as you like. This module is part of the opionated GlueOps Platform. If you came here directly then you should probably visit https://github.com/glueops/admiral as that is the starting point.
 
-## Prerequisites
+## Prerequisites to use this Terraform module
 
-- Before you start have a connection to your kubernetes cluster. Make sure that you can run this command and all the vault-[0-2] pods with status "Running":
-```bash
-kubectl get pods -n glueops-core-vault
+- All Vault Pods must be in at least a `Running` State
+- Connection to the Vault cluster using `kubectl` port forwarding.
+- Skip SSL verification
+
+For more details see: https://github.com/GlueOps/terraform-module-kubernetes-hashicorp-vault-initialization/wiki
+
+### Example usage of module
+
+```hcl
+module "initialize_vault_cluster" {
+  source = "git::https://github.com/GlueOps/terraform-module-kubernetes-hashicorp-vault-initialization.git?ref=v0.2.0"
+}
 ```
-
-**Before you can use the module you need to establish a connection to the svc/vault**
-
-- In a separate terminal on the same VM run:
-
-```bash
-kubectl -n glueops-core-vault port-forward svc/vault-ui 8200:8200
-```
-
-### Note
-
-If you are using a self-signed SSL you need to let the vault SDK know to skip SSL verification. `export VAULT_SKIP_VERIFY=true`
 
 ## Requirements
 
